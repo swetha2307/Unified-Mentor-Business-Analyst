@@ -1,0 +1,95 @@
+Financial Performance Dashboard
+A comprehensive Tableau dashboard that analyzes financial performance across countries, products, and time periods using key financial metrics such as sales, profit, cost of goods sold (COGS), and discounts.
+Project Overview
+This project creates an interactive financial performance dashboard to help businesses track and analyze their financial metrics. The dashboard provides insights into:
+
+Sales and profit performance by country
+Sales and profit trends over time
+Impact of discounts on gross sales
+Product performance across different discount bands
+Key financial KPIs and metrics
+
+Dataset
+The dataset contains financial performance data with the following columns:
+
+Segment
+Country
+Product
+Discount Band
+Units Sold
+Manufacturing Price
+Sale Price
+Gross Sales
+Discounts
+Sales
+COGS (Cost of Goods Sold)
+Profit
+Date, Month Number, Month Name, Year
+
+Features
+Key Performance Indicators (KPIs)
+
+Total Revenue
+Total Profit
+Profit Margin
+COGS to Sales Ratio
+Discount Impact
+
+Visualizations
+
+Sales & Profit by Country: Bar chart comparing sales and profits across countries
+Sales & Profit Trends: Line graph showing sales and profit trends over time
+Discount Analysis: Scatter plot showing relationship between gross sales and discounts
+Product Performance Heat Map: Heat map of sales by product and discount band
+Profit and Loss Statement: Detailed breakdown of financial performance
+
+Interactive Elements
+
+Date/Time filters
+Country, Segment, and Product filters
+Interactive highlighting across all visualizations
+Drill-down capabilities for detailed analysis
+
+Implementation Steps
+
+Data Connection and Preparation
+
+Connect to data source
+Format date fields
+Create calculated fields
+
+
+Build Core Visualizations
+
+Create individual worksheets for each visualization
+Apply appropriate colors and formatting
+
+
+Dashboard Assembly
+
+Arrange visualizations in a logical layout
+Add interactive filters and actions
+Create dashboard title and instructions
+
+
+Testing and Refinement
+
+Test all interactive elements
+Optimize for performance
+Refine visual design
+
+
+Clone this repository
+Copygit clone https://github.com/yourusername/financial-performance-dashboard.git
+
+Open the Tableau workbook file (.twbx)
+If you want to connect to your own data, replace the data source while maintaining the field names
+Customize the dashboard to fit your specific needs
+
+Requirements
+
+Tableau Desktop 2021.4 or newer
+8GB RAM recommended for smooth performance
+
+Contributor 
+Swetha A
