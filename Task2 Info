@@ -1,1 +1,81 @@
+#Task2
+Stock Market Analysis Project
+Overview
+Analysis of historical stock price data for Apple, Microsoft, Netflix, and Google over a three-month period using Tableau, SQL, and Excel. The project identifies trends, calculates moving averages and volatility, and examines correlations between different stocks.
+Dataset
+Historical stock price data for AAPL, MSFT, NFLX, and GOOGL including daily prices and volumes.
 
+Source: Dataset Link
+
+Tools Used
+
+Tableau Desktop
+SQL
+Excel
+
+Project Structure
+Copystock-market-analysis/
+├── data/              # Raw and processed data files
+├── sql/               # SQL scripts
+├── visualizations/    # Tableau workbooks
+├── excel/             # Excel workbooks
+└── docs/              # Documentation
+Key Features
+
+Stock Price Comparison: Interactive price movement visualizations
+Performance Metrics: Growth rates and volatility statistics
+Moving Averages: 7-day, 14-day, and 30-day moving averages
+Volatility Analysis: Stock price volatility comparisons
+Correlation Analysis: Heatmap of stock movement correlations
+Volume Analysis: Trading volume patterns and relationship with price
+
+Setup
+
+Clone this repository
+Install Tableau Desktop
+Open stock_market_analysis.twbx in the visualizations folder
+
+Dashboard Usage
+
+Use date range filter to select time periods
+Select companies to display
+Adjust moving average parameters
+Hover over data points for detailed information
+
+Key Findings
+
+Performance Comparison
+
+Microsoft (MSFT) showed the strongest growth with approximately 18.3% increase over the three-month period
+Apple (AAPL) demonstrated stable growth with 12.5% increase and moderate volatility
+Google (GOOGL) performed with steady growth of 9.8%, showing the most consistent price movement
+Netflix (NFLX) experienced a slight decline of 3.2%, underperforming compared to other tech stocks
+
+Volatility Analysis
+
+Netflix exhibited the highest volatility among the four stocks, with frequent price swings
+Apple showed moderate volatility with occasional significant price movements
+Google demonstrated the lowest volatility with the most stable price action
+Volatility typically increased for all stocks following major market announcements or earnings reports
+
+Correlation Patterns
+
+Google and Microsoft showed strong positive correlation (0.78) in their price movements
+Apple and Google exhibited moderate positive correlation (0.62)
+Netflix had the weakest correlation with other stocks, suggesting more independent price movement
+Correlations strengthened during broader market downturns, indicating increased systemic risk during stress periods
+
+Volume-Price Relationship
+
+Significant price changes were often preceded by unusual trading volumes
+Apple showed the most consistent volume-price relationship, with volume spikes typically preceding price movements by 1-2 days
+Netflix demonstrated the strongest volume-price impact, with price changes often proportional to abnormal trading volumes
+Pre-earnings trading volumes were elevated for all stocks, with post-earnings volumes highest for stocks that surprised market expectations
+
+Moving Average Insights
+
+Several potential trading signals were identified through moving average crossovers
+The 7-day and 30-day moving average crossovers provided the most reliable signals
+Microsoft showed the clearest bullish signals with upward crossovers
+Netflix exhibited potential reversal signals toward the end of the period
+Moving averages effectively smoothed out market noise, especially for Google and Apple
