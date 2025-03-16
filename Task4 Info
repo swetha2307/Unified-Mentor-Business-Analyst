@@ -1,1 +1,128 @@
+# Supply Chain Management Dashboard
 
+## Project Overview
+This repository contains the code and resources for a comprehensive Supply Chain Management Dashboard built using Tableau. The dashboard analyzes and visualizes key metrics related to fashion and beauty makeup products throughout the supply chain, helping stakeholders make data-driven decisions.
+
+## Dataset
+The dataset includes information on makeup products' supply chain, featuring:
+- Product information (Type, SKU, Price)
+- Sales metrics (Availability, Products sold, Revenue)
+- Customer demographics
+- Inventory data (Stock levels, Lead times)
+- Order information (Quantities, Shipping times, Costs)
+- Supplier details (Name, Location, Lead time)
+- Manufacturing metrics (Production volumes, Lead time, Costs)
+- Quality control (Inspection results, Defect rates)
+- Transportation data (Modes, Routes, Costs)
+
+## Dashboard Components
+
+### 1. Executive Summary
+- KPI cards showing total revenue, on-time delivery rate, average lead time, and total supply chain costs
+- Trend analysis of key performance indicators over time
+
+### 2. Inventory Management
+- Current inventory levels by product type and warehouse
+- Inventory trends over time
+- Days of inventory remaining calculation
+- Stock level alerts for products approaching reorder point
+
+### 3. Order Fulfillment
+- Order fulfillment status trends
+- On-time delivery rates by product category
+- Order volume and fulfillment rate by region
+- Customer satisfaction metrics
+
+### 4. Supplier Performance
+- Supplier delivery time comparison
+- Defect rates by supplier
+- Cost efficiency analysis
+- Supplier reliability scores
+
+### 5. Transportation Efficiency
+- Transit times by carrier and delivery status
+- Delivery status trends
+- Shipping cost analysis by route and carrier
+- Transportation mode efficiency comparison
+
+### 6. Supply Chain Costs
+- Cost distribution by type (pie chart)
+- Cost trends over time
+- Cost breakdown by product category
+- Cost optimization opportunities
+
+## Implementation Guide
+
+### Prerequisites
+- Tableau Desktop (2022.1 or later recommended)
+- SQL knowledge for data preparation (optional)
+- Microsoft Excel for data preprocessing
+
+### Setup Instructions
+1. Clone this repository to your local machine
+2. Download the dataset from the provided link
+3. Data preparation:
+   - Clean the dataset using the provided preprocessing scripts
+   - Create the necessary calculated fields in Tableau
+4. Open the Tableau workbook file (`supply_chain_dashboard.twbx`)
+5. Connect to your prepared dataset
+6. Customize the dashboard parameters as needed
+
+### Tableau Calculated Fields
+```
+// Inventory Management Calculations
+Days of Inventory Remaining: [InventoryLevel] / AVG([DailySales])
+Inventory Status: IF [Days of Inventory Remaining] < 7 THEN "Critical" 
+                  ELSEIF [Days of Inventory Remaining] < 14 THEN "Low" 
+                  ELSEIF [Days of Inventory Remaining] < 30 THEN "Adequate" 
+                  ELSE "Excess" END
+
+// Order Fulfillment Calculations
+On-Time Delivery Rate: SUM(IF [OnTimeDelivery] = 'Yes' THEN 1 ELSE 0 END) / COUNT([OrderID])
+Average Fulfillment Time: DATEDIFF('day', [OrderDate], [DeliveryDate])
+
+// Supplier Performance Calculations
+Average Delivery Time: AVG([DeliveryTime])
+Defect Rate: SUM([DefectiveUnits]) / SUM([TotalUnits])
+Supplier Score: (10 - [Average Delivery Time]/2) - ([Defect Rate] * 10)
+
+// Transportation Efficiency Calculations
+Average Transit Time: AVG([TransitTime])
+Carrier Efficiency: SUM(IF [DeliveryStatus] = 'On Time' THEN 1 ELSE 0 END) / COUNT([ShipmentID])
+
+// Supply Chain Costs Calculations
+Total Costs: SUM([Amount])
+Cost per Unit: SUM([Amount]) / SUM([Units])
+```
+
+## Data Dictionary
+
+| Field | Description |
+|-------|-------------|
+| Product Type | Category of the makeup product |
+| SKU | Stock Keeping Unit - unique identifier for each product |
+| Price | Selling price of the product |
+| Availability | Whether the product is available for sale |
+| Number of products sold | Quantity sold during the period |
+| Revenue generated | Total revenue from sales |
+| Customer demographics | Information about the customer base |
+| Stock levels | Current inventory quantities |
+| Lead times | Time between order placement and delivery |
+| Order quantities | Number of units in each order |
+| Shipping times | Duration of shipping |
+| Shipping carriers | Companies handling product shipping |
+| Shipping costs | Expenses related to transportation |
+| Supplier name | Name of the product supplier |
+| Location | Geographic location of warehouses/suppliers |
+| Production volumes | Quantity produced in manufacturing |
+| Manufacturing lead time | Time required for production |
+| Manufacturing costs | Expenses related to production |
+| Inspection results | Quality control outcomes |
+| Defect rates | Percentage of defective products |
+| Transportation modes | Method of transportation (air, sea, land) |
+| Routes | Shipping pathways |
+| Costs | Various expenses throughout the supply chain |
+
+
+Contributor
+Swetha A
