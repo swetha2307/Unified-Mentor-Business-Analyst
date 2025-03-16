@@ -1,0 +1,160 @@
+# Financial Performance Dashboard - Tableau Implementation Guide
+
+This guide provides detailed instructions for implementing the Financial Performance Dashboard in Tableau.
+
+## 1. Data Connection
+
+1. Open Tableau Desktop
+2. Click on "Connect to Data" and select the appropriate file type (Excel/CSV)
+3. Navigate to the downloaded dataset from [Google Drive](https://drive.google.com/file/d/1PGTp4teuL7jArkWCw-dd2YiZ6BZtlUMw/view)
+4. In the Data Source tab:
+   - Verify that date fields are correctly recognized
+   - Ensure numeric fields are measures
+   - Confirm text fields are dimensions
+
+## 2. Creating Calculated Fields
+
+Create the following calculated fields to enhance your analysis:
+
+### Basic Calculations
+
+```
+Profit Margin = IF SUM([Sales]) != 0 THEN SUM([Profit]) / SUM([Sales]) END
+
+Total Revenue = SUM([Gross Sales])
+
+COGS to Sales = IF SUM([Sales]) != 0 THEN SUM([COGS]) / SUM([Sales]) END
+
+Discount Impact = SUM([Discounts]) / SUM([Gross Sales])
+
+GP Margin = IF SUM([Gross Sales]) != 0 THEN SUM([Profit]) / SUM([Gross Sales]) * 100 END
+
+NP Margin = IF SUM([Sales]) != 0 THEN SUM([Profit]) / SUM([Sales]) * 100 END
+```
+
+### Advanced Calculations
+
+```
+YoY Growth = (SUM([Sales]) - LOOKUP(SUM([Sales]), -1)) / LOOKUP(SUM([Sales]), -1)
+
+Running Total Sales = RUNNING_SUM(SUM([Sales]))
+
+Profit per Unit = SUM([Profit])/SUM([Units Sold])
+
+EBITDA = SUM([Profit]) + [Operating Expenses]  // Assuming you have or can calculate Operating Expenses
+```
+
+## 3. Building Core Visualizations
+
+### Visualization 1: Sales and Profit by Country
+
+1. Create a new worksheet
+2. Drag "Country" to Rows
+3. Drag "Sales" to Columns
+4. Add "Profit" to Color on the Marks card
+5. Sort by Sales (descending)
+6. Edit the tooltip to show:
+   - Country
+   - Sales
+   - Profit
+   - Profit Margin
+   - COGS
+
+### Visualization 2: Sales and Profit Trend
+
+1. Create a new worksheet
+2. Drag "Date" (or Year + Month) to Columns
+3. Right-click on the Date pill and select "Month" or appropriate time granularity
+4. Drag "Sales" and "Profit" to Rows
+5. Change the mark type to "Line"
+6. Add "Segment" to Color for multi-segment analysis
+
+### Visualization 3: Gross Sales vs Discounts Scatter Plot
+
+1. Create a new worksheet
+2. Drag "Gross Sales" to Columns
+3. Drag "Discounts" to Rows
+4. Change the mark type to "Circle"
+5. Add "Product" or "Country" to Color
+6. Add "Profit" to Size
+7. Add reference lines for average Gross Sales and average Discounts
+
+### Visualization 4: Product Performance Heat Map
+
+1. Create a new worksheet
+2. Drag "Product" to Rows
+3. Drag "Discount Band" to Columns
+4. Drag "Sales" to Color
+5. Edit color scheme to use a sequential palette (e.g., white to blue)
+6. Sort Products by total Sales
+
+### Visualization 5: Profit and Loss Statement
+
+1. Create a new worksheet
+2. Set up a text table with hierarchical financial metrics
+3. Include calculated fields for:
+   - Gross Profit
+   - Operating Profit
+   - EBITDA
+   - Net Profit
+4. Format numbers as currency
+5. Use conditional formatting to highlight positive/negative values
+
+## 4. Dashboard Assembly
+
+1. Create a new dashboard with an appropriate size (recommend 1200 x 800 pixels)
+2. Add a dashboard title: "Financial Performance Dashboard"
+3. Create a layout with:
+   - KPI cards at the top
+   - Main visualizations in the center
+   - Filters and legends on the right side
+
+4. Add filters:
+   - Date/Year filter (top left)
+   - Segment filter (below Date)
+   - Country filter (below Segment)
+   - Product filter (optional)
+
+5. Enable cross-filtering:
+   - Right-click on visualizations and select "Use as Filter"
+   - Set up appropriate dashboard actions
+
+6. Add a "Reset All" button:
+   - Create a calculated field "Reset" with the value TRUE
+   - Add this field as a filter and show the filter
+   - Edit the filter title to "Reset All"
+
+## 5. Formatting and Polish
+
+1. Establish a consistent color scheme:
+   - Blue for Sales
+   - Green for Profit
+   - Red for negative values
+   - Grey for neutral elements
+
+2. Format all currency values consistently:
+   - Use thousands separators
+   - Show appropriate decimal places
+
+3. Add informative titles to all visualizations
+
+4. Create comprehensive tooltips that provide context
+
+5. Add annotations to highlight key insights or outliers
+
+## 6. Sharing and Publishing
+
+1. Save your Tableau workbook (.twb or .twbx)
+2. Publish to Tableau Public, Tableau Server, or Tableau Online as appropriate
+3. Set up scheduled refreshes if connecting to live data
+4. Create a PDF export for stakeholders who don't have Tableau
+
+## 7. Documentation
+
+Create documentation that includes:
+- Data dictionary
+- Calculation explanations
+- Guide for interpreting key visualizations
+- Instructions for using dashboard filters
+
+This implementation guide covers all necessary steps to recreate and customize the Financial Performance Dashboard in Tableau.
