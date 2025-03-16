@@ -1,0 +1,86 @@
+import pandas as pd
+import numpy as np
+from datetime import datetime, timedelta
+
+# Load the supply chain dataset
+# Replace 'supply_chain_data.csv' with your actual file path
+df = pd.read_csv('supply_chain_data.csv')
+
+# Data cleaning and preprocessing
+def preprocess_data(df):
+    # Convert date columns to datetime format
+    date_columns = [col for col in df.columns if 'date' in col.lower() or 'time' in col.lower()]
+    for col in date_columns:
+        try:
+            df[col] = pd.to_datetime(df[col])
+        except:
+            print(f"Could not convert {col} to datetime")
+    
+    # Handle missing values
+    df = df.fillna({
+        'Price': df['Price'].median(),
+        'Number of products sold': 0,
+        'Revenue generated': 0,
+        'Stock levels': 0,
+        'Defect rates': 0
+    })
+    
+    # Calculate additional metrics
+    if 'Revenue generated' in df.columns and 'Number of products sold' in df.columns:
+        df['Average Price'] = df['Revenue generated'] / df['Number of products sold'].replace(0, np.nan)
+    
+    if 'Manufacturing costs' in df.columns and 'Number of products sold' in df.columns:
+        df['Cost per Unit'] = df['Manufacturing costs'] / df['Number of products sold'].replace(0, np.nan)
+    
+    if 'Revenue generated' in df.columns and 'Manufacturing costs' in df.columns:
+        df['Profit Margin'] = (df['Revenue generated'] - df['Manufacturing costs']) / df['Revenue generated'] * 100
+    
+    # Create date hierarchy for time analysis
+    if 'Date' in df.columns:
+        df['Year'] = df['Date'].dt.year
+        df['Quarter'] = df['Date'].dt.quarter
+        df['Month'] = df['Date'].dt.month
+        df['Week'] = df['Date'].dt.isocalendar().week
+        df['Day'] = df['Date'].dt.day
+    
+    # Categorize lead times
+    if 'Lead time' in df.columns:
+        bins = [0, 2, 5, 10, float('inf')]
+        labels = ['Fast (0-2 days)', 'Normal (3-5 days)', 'Slow (6-10 days)', 'Very Slow (>10 days)']
+        df['Lead Time Category'] = pd.cut(df['Lead time'], bins=bins, labels=labels)
+    
+    # Flag for stock level alerts
+    if 'Stock levels' in df.columns and 'ReorderPoint' in df.columns:
+        df['Stock Alert'] = np.where(df['Stock levels'] <= df['ReorderPoint'], 'Reorder', 'Adequate')
+    
+    return df
+
+# Process the data
+processed_df = preprocess_data(df)
+
+# Create separate dataframes for different dashboard components
+inventory_df = processed_df[['Product Type', 'SKU', 'Stock levels', 'ReorderPoint', 
+                             'Lead time', 'Date', 'Availability', 'Stock Alert']]
+
+sales_df = processed_df[['Product Type', 'SKU', 'Number of products sold', 
+                         'Revenue generated', 'Date', 'Customer demographics']]
+
+supplier_df = processed_df[['Supplier name', 'Location', 'Lead time', 
+                            'Production volumes', 'Manufacturing lead time', 
+                            'Manufacturing costs', 'Date']]
+
+quality_df = processed_df[['Product Type', 'SKU', 'Inspection results', 
+                           'Defect rates', 'Supplier name', 'Date']]
+
+transportation_df = processed_df[['Shipping times', 'Shipping carriers', 
+                                 'Shipping costs', 'Transportation modes', 
+                                 'Routes', 'Date']]
+
+# Export processed dataframes for Tableau
+inventory_df.to_csv('inventory_data.csv', index=False)
+sales_df.to_csv('sales_data.csv', index=False)
+supplier_df.to_csv('supplier_data.csv', index=False)
+quality_df.to_csv('quality_data.csv', index=False)
+transportation_df.to_csv('transportation_data.csv', index=False)
+
+print("Data preprocessing complete. Files exported for Tableau.")
