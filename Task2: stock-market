@@ -1,1 +1,134 @@
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Dashboard Background -->
+  <rect width="800" height="600" fill="#F8F9FA"/>
+  
+  <!-- Header -->
+  <rect x="10" y="10" width="780" height="50" rx="5" fill="#FFFFFF" stroke="#DDDDDD"/>
+  <text x="30" y="42" font-family="Arial" font-size="22" font-weight="bold" fill="#333333">Tech Stock Performance: AAPL, MSFT, NFLX, GOOGL</text>
+  
+  <!-- Control Panel -->
+  <rect x="10" y="70" width="780" height="60" rx="5" fill="#FFFFFF" stroke="#DDDDDD"/>
+  
+  <!-- Date Range Filter -->
+  <rect x="30" y="85" width="250" height="30" rx="3" fill="#F0F0F0" stroke="#CCCCCC"/>
+  <text x="40" y="105" font-family="Arial" font-size="12" fill="#666666">Date Range: Jan 2023 - Mar 2023</text>
+  <rect x="200" y="90" width="70" height="20" rx="3" fill="#4E79A7" stroke="#4E79A7"/>
+  <text x="215" y="105" font-family="Arial" font-size="12" fill="#FFFFFF">Filter</text>
+  
+  <!-- Company Selector -->
+  <rect x="300" y="85" width="240" height="30" rx="3" fill="#F0F0F0" stroke="#CCCCCC"/>
+  <text x="310" y="105" font-family="Arial" font-size="12" fill="#666666">Companies: All Selected</text>
+  <rect x="450" y="90" width="80" height="20" rx="3" fill="#4E79A7" stroke="#4E79A7"/>
+  <text x="465" y="105" font-family="Arial" font-size="12" fill="#FFFFFF">Select</text>
+  
+  <!-- Moving Average Selector -->
+  <rect x="560" y="85" width="210" height="30" rx="3" fill="#F0F0F0" stroke="#CCCCCC"/>
+  <text x="570" y="105" font-family="Arial" font-size="12" fill="#666666">Moving Avg: 7, 14, 30 days</text>
+  <rect x="690" y="90" width="70" height="20" rx="3" fill="#4E79A7" stroke="#4E79A7"/>
+  <text x="705" y="105" font-family="Arial" font-size="12" fill="#FFFFFF">Apply</text>
+  
+  <!-- Stock Price Comparison Chart -->
+  <rect x="10" y="140" width="450" height="220" rx="5" fill="#FFFFFF" stroke="#DDDDDD"/>
+  <text x="30" y="165" font-family="Arial" font-size="14" font-weight="bold" fill="#333333">Stock Price Comparison</text>
+  
+  <!-- Stock Price Chart Mock -->
+  <rect x="30" y="175" width="410" height="170" fill="#FFFFFF"/>
+  <polyline points="30,300 50,290 70,295 90,285 110,280 130,290 150,270 170,260 190,240 210,230 230,235 250,245 270,260 290,250 310,230 330,225 350,215 370,200 390,190 410,180 430,175" stroke="#A2AAAD" stroke-width="2" fill="none"/>
+  <polyline points="30,280 50,275 70,270 90,265 110,260 130,250 150,240 170,235 190,230 210,220 230,210 250,205 270,200 290,195 310,185 330,180 350,175 370,170 390,165 410,160 430,155" stroke="#00A4EF" stroke-width="2" fill="none"/>
+  <polyline points="30,260 50,265 70,275 90,290 110,285 130,280 150,270 170,265 190,260 210,250 230,240 250,230 270,225 290,215 310,210 330,200 350,190 370,180 390,170 410,160 430,150" stroke="#E50914" stroke-width="2" fill="none"/>
+  <polyline points="30,250 50,245 70,240 90,235 110,230 130,225 150,220 170,225 190,215 210,210 230,205 250,200 270,195 290,190 310,185 330,180 350,170 370,165 390,155 410,150 430,145" stroke="#4285F4" stroke-width="2" fill="none"/>
+  
+  <!-- X and Y axis -->
+  <line x1="30" y1="345" x2="440" y2="345" stroke="#CCCCCC" stroke-width="1"/>
+  <line x1="30" y1="175" x2="30" y2="345" stroke="#CCCCCC" stroke-width="1"/>
+  
+  <!-- Legend -->
+  <rect x="30" y="315" width="12" height="2" fill="#A2AAAD"/>
+  <text x="45" y="318" font-family="Arial" font-size="10" fill="#666666">AAPL</text>
+  <rect x="100" y="315" width="12" height="2" fill="#00A4EF"/>
+  <text x="115" y="318" font-family="Arial" font-size="10" fill="#666666">MSFT</text>
+  <rect x="170" y="315" width="12" height="2" fill="#E50914"/>
+  <text x="185" y="318" font-family="Arial" font-size="10" fill="#666666">NFLX</text>
+  <rect x="240" y="315" width="12" height="2" fill="#4285F4"/>
+  <text x="255" y="318" font-family="Arial" font-size="10" fill="#666666">GOOGL</text>
+  
+  <!-- Performance Metrics Panel -->
+  <rect x="470" y="140" width="320" height="220" rx="5" fill="#FFFFFF" stroke="#DDDDDD"/>
+  <text x="490" y="165" font-family="Arial" font-size="14" font-weight="bold" fill="#333333">Performance Metrics</text>
+  
+  <!-- Metrics Table -->
+  <rect x="490" y="180" width="280" height="25" fill="#F0F0F0"/>
+  <text x="500" y="197" font-family="Arial" font-size="12" fill="#333333">Company</text>
+  <text x="600" y="197" font-family="Arial" font-size="12" fill="#333333">% Change</text>
+  <text x="685" y="197" font-family="Arial" font-size="12" fill="#333333">Volatility</text>
+  
+  <!-- AAPL Row -->
+  <rect x="490" y="205" width="280" height="25" fill="#FFFFFF"/>
+  <text x="500" y="222" font-family="Arial" font-size="12" fill="#333333">AAPL</text>
+  <text x="600" y="222" font-family="Arial" font-size="12" fill="#22A045">+12.5%</text>
+  <rect x="680" y="215" width="40" height="8" rx="2" fill="#F0F0F0"/>
+  <rect x="680" y="215" width="28" height="8" rx="2" fill="#4E79A7"/>
+  
+  <!-- MSFT Row -->
+  <rect x="490" y="230" width="280" height="25" fill="#F8F8F8"/>
+  <text x="500" y="247" font-family="Arial" font-size="12" fill="#333333">MSFT</text>
+  <text x="600" y="247" font-family="Arial" font-size="12" fill="#22A045">+18.3%</text>
+  <rect x="680" y="240" width="40" height="8" rx="2" fill="#F0F0F0"/>
+  <rect x="680" y="240" width="23" height="8" rx="2" fill="#4E79A7"/>
+  
+  <!-- NFLX Row -->
+  <rect x="490" y="255" width="280" height="25" fill="#FFFFFF"/>
+  <text x="500" y="272" font-family="Arial" font-size="12" fill="#333333">NFLX</text>
+  <text x="600" y="272" font-family="Arial" font-size="12" fill="#CC3232">-3.2%</text>
+  <rect x="680" y="265" width="40" height="8" rx="2" fill="#F0F0F0"/>
+  <rect x="680" y="265" width="35" height="8" rx="2" fill="#4E79A7"/>
+  
+  <!-- GOOGL Row -->
+  <rect x="490" y="280" width="280" height="25" fill="#F8F8F8"/>
+  <text x="500" y="297" font-family="Arial" font-size="12" fill="#333333">GOOGL</text>
+  <text x="600" y="297" font-family="Arial" font-size="12" fill="#22A045">+9.8%</text>
+  <rect x="680" y="290" width="40" height="8" rx="2" fill="#F0F0F0"/>
+  <rect x="680" y="290" width="25" height="8" rx="2" fill="#4E79A7"/>
+  
+  <!-- Moving Averages Chart - Now Complete -->
+  <rect x="10" y="370" width="380" height="220" rx="5" fill="#FFFFFF" stroke="#DDDDDD"/>
+  <text x="30" y="395" font-family="Arial" font-size="14" font-weight="bold" fill="#333333">Moving Averages: AAPL</text>
+  
+  <!-- Moving Average Chart Mock - Now Complete -->
+  <rect x="30" y="405" width="340" height="170" fill="#FFFFFF"/>
+  <!-- Stock Price Line -->
+  <polyline points="30,500 50,490 70,495 90,485 110,480 130,490 150,470 170,460 190,440 210,430 230,435 250,445 270,460 290,450 310,430 330,425 350,415" stroke="#A2AAAD" stroke-width="2" fill="none"/>
+  <!-- 7-Day MA Line -->
+  <polyline points="30,490 50,488 70,487 90,482 110,482 130,480 150,472 170,465 190,450 210,438 230,439 250,445 270,452 290,448 310,437 330,430 350,422" stroke="#00A4EF" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+  <!-- 14-Day MA Line -->
+  <polyline points="30,485 50,484 70,482 90,480 110,478 130,476 150,474 170,470 190,460 210,450 230,445 250,446 270,448 290,446 310,442 330,438 350,430" stroke="#4285F4" stroke-width="2" fill="none" stroke-dasharray="3,3"/>
+  <!-- 30-Day MA Line -->
+  <polyline points="30,483 50,482 70,481 90,480 110,478 130,475 150,472 170,468 190,465 210,460 230,455 250,452 270,450 290,447 310,444 330,441 350,437" stroke="#E50914" stroke-width="2" fill="none" stroke-dasharray="1,3"/>
+  
+  <!-- X and Y axis -->
+  <line x1="30" y1="575" x2="370" y2="575" stroke="#CCCCCC" stroke-width="1"/>
+  <line x1="30" y1="405" x2="30" y2="575" stroke="#CCCCCC" stroke-width="1"/>
+  
+  <!-- Legend -->
+  <rect x="30" y="545" width="12" height="2" fill="#A2AAAD"/>
+  <text x="45" y="548" font-family="Arial" font-size="10" fill="#666666">Price</text>
+  <rect x="100" y="545" width="12" height="2" fill="#00A4EF" stroke-dasharray="5,3"/>
+  <text x="115" y="548" font-family="Arial" font-size="10" fill="#666666">7-Day MA</text>
+  <rect x="180" y="545" width="12" height="2" fill="#4285F4" stroke-dasharray="3,3"/>
+  <text x="195" y="548" font-family="Arial" font-size="10" fill="#666666">14-Day MA</text>
+  <rect x="260" y="545" width="12" height="2" fill="#E50914" stroke-dasharray="1,3"/>
+  <text x="275" y="548" font-family="Arial" font-size="10" fill="#666666">30-Day MA</text>
+  
+  <!-- Volatility Analysis Chart -->
+  <rect x="400" y="370" width="390" height="220" rx="5" fill="#FFFFFF" stroke="#DDDDDD"/>
+  <text x="420" y="395" font-family="Arial" font-size="14" font-weight="bold" fill="#333333">Volatility Comparison</text>
+  
+  <!-- Volatility Chart Mock -->
+  <rect x="420" y="405" width="350" height="170" fill="#FFFFFF"/>
+  <polyline points="420,530 440,525 460,535 480,545 500,525 520,520 540,530 560,540 580,520 600,525 620,515 640,530 660,540 680,525 700,520 720,515 740,530 760,520" stroke="#A2AAAD" stroke-width="2" fill="none"/>
+  <polyline points="420,510 440,515 460,525 480,515 500,505 520,510 540,500 560,505 580,515 600,510 620,520 640,515 660,505 680,500 700,510 720,505 740,515 760,510" stroke="#00A4EF" stroke-width="2" fill="none"/>
+  <polyline points="420,550 440,545 460,555 480,540 500,545 520,550 540,545 560,555 580,540 600,545 620,535 640,550 660,545 680,555 700,540 720,545 740,535 760,540" stroke="#E50914" stroke-width="2" fill="none"/>
+  <polyline points="420,520 440,525 460,515 480,520 500,530 520,525 540,520 560,515 580,525 600,520 620,525 640,515 660,520 680,515 700,525 720,530 740,520 760,525" stroke="#4285F4" stroke-width="2" fill="none"/>
+  
+  <!-- X and Y axis -->
+  <line x1="420" y1="575" x2="770" y2="575" stroke="#CCCCCC" stroke-width
